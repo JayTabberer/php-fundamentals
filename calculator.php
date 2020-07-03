@@ -9,14 +9,38 @@
 
 <body>
 
-    <form action="calculator.php" method="get">
-        <input type="number" name="num1">
+    <form action="calculator.php" method="post">
+        First Number:<input type="number" step="0.001" name="num1">
         <br>
-        <input type="number" name="num2">
+        OP:<input type="textbox" name="op">
+        <br>
+        Second number:<input type="number" step="0.001" name="num2">
         <input type="submit">
     </form>
 
-    <?php echo $_GET["num1"] + $_GET["num2"] ?>
+    <?php
+
+    $num1 = $_POST["num1"];
+    $num2 = $_POST["num2"];
+    $op = $_POST["op"];
+
+    if ($op == "+") {
+         echo $num1 + $num2;
+    }else if($op == "-"){
+        echo $num1 - $num2;
+    }else if($op == "*"){    
+        echo $num1 * $num2;
+    }else if($op == "/"){
+        echo $num1 / $num2;
+    }else{
+        echo "Invalid operator";
+    }
+
+    ?>
+
+    <!-- <?php echo $_GET["num1"] + $_GET["num2"] ?> -->
+
+
 
 </body>
 
